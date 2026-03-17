@@ -19,18 +19,18 @@ export default function AppMain() {
     <main>
       <section>
         <div className="container">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {actresses.map((actress) => (
               <div className="col" key={actress.id}>
-                <div className="card">
+                <div className="card h-100">
                   <img src={actress.image} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">{actress.name}</h5>
-                    <p className="card-text"><small className="text-body-secondary">{actress.birth_year} {actress.nationality}</small></p>
-                    <p className="card-text">
+                    <p className="card-text"><small className="text-body-secondary">{actress.birth_year}, {actress.nationality}</small></p>
+                    <p className="card-text fst-italic">
                       {actress.biography}
                     </p>
-                    <p className="card-text">Best Movies: <br/> {actress.most_famous_movies}</p>
+                    <p className="card-text text-start-bottom"><span className="fw-medium">Best Movies:</span> <br/> {actress.most_famous_movies}</p>
                   </div>
                 </div>
               </div>
