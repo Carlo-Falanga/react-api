@@ -49,7 +49,7 @@ export default function AppMain() {
                       </small>
                     </p>
                     <p className="card-text fst-italic">{actressAndActor.biography}</p>
-                    <p className="card-text"><span className="fw-medium">Rewards:</span> <br />{actressAndActor.awards}</p>
+                    <p className="card-text"><span className="fw-medium">Awards:</span> <br />{actressAndActor.awards.join(', ')}</p>
                     <p className="card-text">
                       <span className="fw-medium">Known for:</span> <br />
                       {(actressAndActor.most_famous_movies || actressAndActor.known_for).join(', ')}
