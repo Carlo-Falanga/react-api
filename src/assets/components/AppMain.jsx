@@ -7,6 +7,9 @@ export default function AppMain() {
   const [actresses, setActresses] = useState([]);
   const [actors, setActors] = useState([]);
 
+  const actressesAndActors = [...actresses, ...actors]
+  
+
   function getActresses() {
     fetch(url_actresses_api)
       .then((res) => res.json())
@@ -34,51 +37,21 @@ export default function AppMain() {
             Actresses
           </h2>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {actresses.map((actress) => (
-              <div className="col" key={actress.id}>
+            {actressesAndActors.map((actressAndActor, index) => (
+              <div className="col" key={index}>
                 <div className="card h-100">
-                  <img src={actress.image} className="card-img-top" alt="..." />
+                  <img src={actressAndActor.image} className="card-img-top" alt="..." />
                   <div className="card-body">
-                    <h5 className="card-title">{actress.name}</h5>
+                    <h5 className="card-title">{actressAndActor.name}</h5>
                     <p className="card-text">
                       <small className="text-body-secondary">
-                        {actress.birth_year}, {actress.nationality}
+                        {actressAndActor.birth_year}, {actressAndActor.nationality}
                       </small>
                     </p>
-                    <p className="card-text fst-italic">{actress.biography}</p>
+                    <p className="card-text fst-italic">{actressAndActor.biography}</p>
                     <p className="card-text text-start-bottom">
-                      <span className="fw-medium">Best Movies:</span> <br />{" "}
-                      {actress.most_famous_movies}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="actors_cards">
-        <div className="container">
-          <h2 className="text-bg-dark d-inline-block mb-3 px-4 py-2 rounded-2">
-            Actors
-          </h2>
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {actors.map((actor) => (
-              <div className="col" key={actor.id}>
-                <div className="card h-100">
-                  <img src={actor.image} className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">{actor.name}</h5>
-                    <p className="card-text">
-                      <small className="text-body-secondary">
-                        {actor.birth_year}, {actor.nationality}
-                      </small>
-                    </p>
-                    <p className="card-text fst-italic">{actor.biography}</p>
-                    <p className="card-text text-start-bottom">
-                      <span className="fw-medium">Best Movies:</span> <br />{" "}
-                      {actor.known_for}
+                      <span className="fw-medium">Best Movies:</span> <br />
+                      {actressAndActor.most_famous_movies ?? actressAndActor.known_for}
                     </p>
                   </div>
                 </div>
