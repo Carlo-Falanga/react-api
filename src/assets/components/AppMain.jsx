@@ -34,7 +34,7 @@ export default function AppMain() {
       <section className="actresses_cards my-5 py-5">
         <div className="container">
           <h2 className="text-bg-dark d-inline-block mb-3 px-4 py-2 rounded-2">
-            Actresses
+            Actors & Actresses
           </h2>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {actressesAndActors.map((actressAndActor, index) => (
@@ -42,15 +42,16 @@ export default function AppMain() {
                 <div className="card h-100">
                   <img src={actressAndActor.image} className="card-img-top" alt="..." />
                   <div className="card-body">
-                    <h5 className="card-title">{actressAndActor.name}</h5>
+                    <h5 className="card-title m-0">{actressAndActor.name}</h5>
                     <p className="card-text">
                       <small className="text-body-secondary">
                         {actressAndActor.birth_year}, {actressAndActor.nationality}
                       </small>
                     </p>
                     <p className="card-text fst-italic">{actressAndActor.biography}</p>
-                    <p className="card-text text-start-bottom">
-                      <span className="fw-medium">Best Movies:</span> <br />
+                    <p className="card-text"><span className="fw-medium">Rewards:</span> <br />{actressAndActor.awards}</p>
+                    <p className="card-text">
+                      <span className="fw-medium">Known for:</span> <br />
                       {actressAndActor.most_famous_movies ?? actressAndActor.known_for}
                     </p>
                   </div>
